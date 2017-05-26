@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'BvImages_Example' do
+  pod 'BvImages', :path => '../'
+
+  target 'BvImages_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
