@@ -85,7 +85,11 @@ public class BvCarousel: UIView {
     var items:[Any] = []
     var position:VPosition = .center
     
-    public func setImages(_ items:[Any], at position:VPosition = .center) {
+    public func setImage(_ item:Any, at position:VPosition = .center) {
+        self.setImages([item], at: position, singleImageMode: true)
+    }
+    
+    public func setImages(_ items:[Any], at position:VPosition = .center, singleImageMode:Bool = false) {
         NotificationCenter.default.addObserver(self,selector: #selector(onChangeStatusBarOrientationNotification(notification:)),
                                                name: NSNotification.Name.UIApplicationDidChangeStatusBarOrientation,
                                                object: nil)
@@ -134,7 +138,14 @@ public class BvCarousel: UIView {
                                                                views: views))
         }
         
-        countLbl.isHidden = imageViews.count < 2
+        if singleImageMode {
+            countLbl.isHidden = true
+            scrollView.alwaysBounceHorizontal = false
+        } else {
+            countLbl.isHidden = false
+            scrollView.alwaysBounceHorizontal = true
+        }
+        
         setPage(0)
         
         self.singleTap = UITapGestureRecognizer(target: self, action: #selector(showImage(_:)))

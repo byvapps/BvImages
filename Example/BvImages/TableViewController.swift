@@ -1,16 +1,18 @@
 //
-//  ScrollView.swift
+//  TableViewController.swift
 //  BvImages
 //
-//  Created by Adrian Apodaca on 2/6/17.
+//  Created by Adrian Apodaca on 9/6/17.
 //  Copyright © 2017 CocoaPods. All rights reserved.
 //
 
 import UIKit
 import BvImages
 
-class ScrollView: BvScrollCarouselViewController {
+class TableViewController: BvScrollCarouselViewController, UITableViewDataSource {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +22,6 @@ class ScrollView: BvScrollCarouselViewController {
                                   "https://daktakdotme.files.wordpress.com/2014/12/palaair.jpg",
                                   "http://zllox.com/wp-content/uploads/2017/02/Freeride-Snowboard.jpg",
                                   "http://www.byvapps.com/img/projects/carousel/surf/slide3.png"], at: .center)
-//        super.carousel.setImage("https://i.redd.it/yogrzpnhzkpy.jpg", at: .center)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,8 +29,13 @@ class ScrollView: BvScrollCarouselViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func share(_ sender: UIBarButtonItem) {
-        print("SHARE!!!")
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 115
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        return cell
     }
 
     /*

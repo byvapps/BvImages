@@ -46,6 +46,11 @@ open class BvScrollCarouselViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.resetFromAlphaUpdates()
+    }
 
     open override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,7 +99,7 @@ extension BvScrollCarouselViewController: UIScrollViewDelegate {
                 frame.origin.y -= UIApplication.shared.statusBarFrame.height
             }
         }
-        self.carouselContainer.top()?.constant = frame.origin.y
+        self.scrollView.top()?.constant = frame.origin.y
         frame.size.height = carouselH
         self.carousel.frame = frame
         

@@ -21,6 +21,8 @@ public class BvWebImageView: UIImageViewAligned {
     static public func from(_ item: Any) -> BvWebImageView? {
         if let url = item as? String {
             return BvWebImageView(urlStr: url)
+        } else if let url = item as? URL {
+            return BvWebImageView(urlStr: url.absoluteString)
         } else if let img = item as? UIImage {
             let response = BvWebImageView()
             response.image = img
