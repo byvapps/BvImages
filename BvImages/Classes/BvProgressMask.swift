@@ -41,15 +41,15 @@ public class BarProgressMask: BvProgressMask {
     
     var placeholderImage:UIImage? = nil
     var blurEffect:UIBlurEffectStyle? = nil
-    var position:VPosition = .bottom
+    var barPosition:VPosition = .bottom
     
     let progressBar:UIProgressView = UIProgressView()
     
-    public convenience init(_placeholderImage:UIImage? = nil, _blurEffect:UIBlurEffectStyle? = nil, _position:VPosition = .bottom) {
+    public convenience init(placeholder:UIImage? = nil, blur:UIBlurEffectStyle? = nil, position:VPosition = .bottom) {
         self.init()
-        self.placeholderImage = _placeholderImage
-        self.blurEffect = _blurEffect
-        self.position = _position
+        self.placeholderImage = placeholder
+        self.blurEffect = blur
+        self.barPosition = position
         self.loadMaskView()
     }
     
@@ -74,9 +74,9 @@ public class BarProgressMask: BvProgressMask {
     
     override open func start() {
         var pos:ByvPosition = .bottom
-        if self.position == .top {
+        if self.barPosition == .top {
             pos = .top
-        } else if self.position == .center {
+        } else if self.barPosition == .center {
             pos = .all
         }
         progressBar.addTo(maskView, position: pos)
@@ -103,10 +103,10 @@ public class BlurMask: BvProgressMask {
     var placeholderImage:UIImage? = nil
     var blurEffect:UIBlurEffectStyle? = nil
     
-    public convenience init(_placeholderImage:UIImage? = nil, _blurEffect:UIBlurEffectStyle? = nil, _position:VPosition = .bottom) {
+    public convenience init(placeholder:UIImage? = nil, blur:UIBlurEffectStyle? = .light) {
         self.init()
-        self.placeholderImage = _placeholderImage
-        self.blurEffect = _blurEffect
+        self.placeholderImage = placeholder
+        self.blurEffect = blur
         self.loadMaskView()
     }
     

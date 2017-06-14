@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mask = BarProgressMask(_placeholderImage: base64Img, _blurEffect: .light)
+        let mask = BarProgressMask(placeholder: base64Img, blur: .dark)
         imageView.backgroundColor = UIColor.lightGray
         imageView.setProgressMask(mask)
         imageView.tintColor = UIColor.gray
