@@ -31,3 +31,7 @@ Carthage
 # `pod install` in .travis.yml
 #
 # Pods/
+Podfile.lock
+Example/Pods
+Example/BvImages.xcworkspace
+Example/BvImages.xcodeproj/project.xcworkspace
