@@ -18,6 +18,7 @@ public class BvWebImageView: UIImageViewAligned {
     public var urlStr:String? = nil
     var progressMask:BvProgressMask? = nil
     
+    
     static public func from(_ item: Any) -> BvWebImageView? {
         if let url = item as? String {
             return BvWebImageView(urlStr: url)
@@ -50,6 +51,7 @@ public class BvWebImageView: UIImageViewAligned {
     }
     
     public func setProgressMask(_ mask:BvProgressMask) {
+        self.progressMask?.maskView.removeFromSuperview()
         self.progressMask = mask
         self.progressMask!.maskView.addTo(self)
     }
@@ -68,7 +70,7 @@ public class BvWebImageView: UIImageViewAligned {
     }
     
     func endLoadingImage() {
-        self.progressMask?.end(completion: { 
+        self.progressMask?.end(completion: {
             self.progressMask?.maskView.removeFromSuperview()
         })
     }
