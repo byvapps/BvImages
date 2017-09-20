@@ -153,7 +153,7 @@ public class BvCarousel: UIView {
         
     }
     
-    func showImage(_ sender: UITapGestureRecognizer) {
+    @objc func showImage(_ sender: UITapGestureRecognizer) {
         var items:[Any] = []
         for imageView in imageViews {
             if let image = imageView.image {

@@ -67,7 +67,7 @@ open class BvScrollCarouselViewController: UIViewController {
     }
     */
     
-    func rotated() {
+    @objc func rotated() {
         carouselHeigth = self.carouselContainer.height()?.constant ?? self.carouselContainer.bounds.size.height
         
         showWhenScrolledAt = carouselHeigth - 64
