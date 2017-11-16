@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BvImages'
-  s.version          = '0.1.4'
+  s.version          = '0.1.5'
   s.summary          = 'Images Preview Utilities.'
 
 # This description is used to generate tags and improve search results.
@@ -29,6 +29,7 @@ This library give utilities to preview images
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '4.0' }
 
   s.source_files = 'BvImages/Classes/**/*'
   
@@ -39,7 +40,7 @@ This library give utilities to preview images
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-    s.dependency 'AlamofireImage', '~> 3.1'
-    s.dependency 'UIImageViewAlignedSwift'
-    s.dependency 'ByvUtils'
+    s.dependency 'AlamofireImage', '3.3.0'
+    s.dependency 'UIImageViewAlignedSwift', '0.5.0'
+    s.dependency 'ByvUtils', '~> 1.1'
 end
