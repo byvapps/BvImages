@@ -15,13 +15,15 @@ class TableViewController: BvScrollCarouselViewController, UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        super.carousel.setImages(["https://i.redd.it/yogrzpnhzkpy.jpg",
-                                  "https://www.w3schools.com/css/trolltunga.jpg",
-                                  "https://tse4.mm.bing.net/th?id=ORT.TH_470633631&pid=1.12&eid=G.470633631",
-                                  "https://daktakdotme.files.wordpress.com/2014/12/palaair.jpg",
-                                  "http://zllox.com/wp-content/uploads/2017/02/Freeride-Snowboard.jpg",
-                                  "http://www.byvapps.com/img/projects/carousel/surf/slide3.png"], at: .center)
+        let deadlineTime = DispatchTime.now() + .seconds(3)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            super.carousel.setImages(["https://i.redd.it/yogrzpnhzkpy.jpg",
+                                      "https://www.w3schools.com/css/trolltunga.jpg",
+                                      "https://tse4.mm.bing.net/th?id=ORT.TH_470633631&pid=1.12&eid=G.470633631",
+                                      "https://daktakdotme.files.wordpress.com/2014/12/palaair.jpg",
+                                      "http://zllox.com/wp-content/uploads/2017/02/Freeride-Snowboard.jpg",
+                                      "http://www.byvapps.com/img/projects/carousel/surf/slide3.png"], at: .center)
+        }
     }
 
     override func didReceiveMemoryWarning() {
